@@ -1,0 +1,129 @@
+{
+  "catalogId": "https://your-org.com/catalogs/oracle-jet-standard.json",
+  "catalogVersion": "1.0.0",
+  "components": {
+    "OJetButton": {
+      "description": "Oracle JET Button Component",
+      "category": "buttons",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Button label text"
+        },
+        "disabled": {
+          "type": "boolean",
+          "description": "Is button disabled"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["button", "submit", "reset"],
+          "default": "button"
+        },
+        "chroming": {
+          "type": "string",
+          "enum": ["half", "full"],
+          "default": "half"
+        }
+      },
+      "actions": ["click"]
+    },
+    "OJetTable": {
+      "description": "Oracle JET Data Table",
+      "category": "data",
+      "properties": {
+        "data": {
+          "type": "object",
+          "description": "Table data source",
+          "dataPath": "true"
+        },
+        "columns": {
+          "type": "array",
+          "description": "Column definitions",
+          "items": {
+            "type": "object",
+            "properties": {
+              "headerText": { "type": "string" },
+              "field": { "type": "string" },
+              "width": { "type": "string" }
+            }
+          }
+        },
+        "selectionMode": {
+          "type": "string",
+          "enum": ["none", "single", "multiple"],
+          "default": "single"
+        }
+      },
+      "actions": ["selectionChanged", "rowClick"]
+    },
+    "OJetInputText": {
+      "description": "Oracle JET Text Input Field",
+      "category": "input",
+      "properties": {
+        "value": {
+          "type": "string",
+          "dataPath": "true"
+        },
+        "placeholder": { "type": "string" },
+        "disabled": { "type": "boolean" },
+        "readonly": { "type": "boolean" },
+        "required": { "type": "boolean" },
+        "type": {
+          "type": "string",
+          "enum": ["text", "email", "number", "password"],
+          "default": "text"
+        }
+      },
+      "actions": ["change", "blur"]
+    },
+    "OJetSelectSingle": {
+      "description": "Oracle JET Single Select",
+      "category": "input",
+      "properties": {
+        "options": {
+          "type": "array",
+          "dataPath": "true",
+          "items": { "type": "object" }
+        },
+        "value": {
+          "type": "string",
+          "dataPath": "true"
+        },
+        "disabled": { "type": "boolean" }
+      },
+      "actions": ["change"]
+    },
+    "OJetDatePicker": {
+      "description": "Oracle JET Date Picker",
+      "category": "input",
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "ISO 8601 date format"
+        },
+        "disabled": { "type": "boolean" },
+        "placeholder": { "type": "string" }
+      },
+      "actions": ["change"]
+    },
+    "OJetChart": {
+      "description": "Oracle JET Chart Component",
+      "category": "visualization",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["bar", "line", "pie", "area", "scatter"],
+          "default": "bar"
+        },
+        "data": {
+          "type": "object",
+          "dataPath": "true"
+        },
+        "title": { "type": "string" },
+        "xAxisLabel": { "type": "string" },
+        "yAxisLabel": { "type": "string" }
+      },
+      "actions": ["itemSelect"]
+    }
+  }
+}
